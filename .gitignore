@@ -1,0 +1,18 @@
+# Dependencias de desarrollo (no se publican)
+node_modules/
+package-lock.json
+
+# Librerías locales para generar el PDF (solo en tu computador)
+.chrome-libs/
+
+# Herramientas locales de desarrollo
+.devserver.py
+.claude/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# Archivos temporales sueltos (ej. de procesamiento de imágenes)
+*.tmp

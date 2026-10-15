@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cristian Cárdenas — Arquitecto · Consultor BIM</title>
+<meta name="description" content="Portafolio profesional de Cristian Cárdenas, Arquitecto, Especialista en Alta Gerencia, MSc en Medio Ambiente y Desarrollo, Consultor BIM." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css?v=3" />
+</head>
+<body>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="site-header" id="inicio">
+  <div class="container header-inner">
+    <a href="#inicio" class="logo">CC<span class="logo-dot">.</span></a>
+
+    <nav class="nav" id="nav">
+      <a href="#sobre-mi">Perfil</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#habilidades">Software</a>
+      <a href="#contacto">Contacto</a>
+      <a href="cv/Portafolio-Cristian-Cardenas.pdf" class="btn btn-outline btn-sm" download>Descargar Portafolio</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Portafolio profesional</p>
+      <h1>Cristian Cárdenas</h1>
+      <p class="hero-role">Arquitecto</p>
+      <p class="hero-subtitle">
+        Especialista en Alta Gerencia · MSc en Medio Ambiente y Desarrollo · Consultor BIM-AEC · Gestión de Proyectos
+      </p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="cv/Portafolio-Cristian-Cardenas.pdf" class="btn btn-outline-light" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Descargar Portafolio en PDF
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <img src="assets/img/perfil/cristian.jpg" alt="Cristian Cárdenas">
+      </div>
+      <div class="photo-blueprint" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE MÍ ============ -->
+<section class="section" id="sobre-mi">
+  <div class="container">
+    <p class="section-eyebrow">01 — Perfil</p>
+    <h2 class="section-title">Sobre mí</h2>
+
+    <div class="about-grid">
+      <p class="about-text">
+        Arquitecto con más de 18 años liderando proyectos de edificación,
+        infraestructura, vivienda y equipamientos públicos y privados, con
+        participación en más de 260.000 m² de proyectos ejecutados,
+        supervisados y coordinados. Trayectoria en interventoría, dirección y
+        residencia de obra, gerencia de proyectos y coordinación BIM,
+        incluyendo grandes superficies comerciales. Enfoque en control
+        técnico, gestión contractual, sostenibilidad e innovación tecnológica
+        aplicada al sector construcción, complementado con experiencia
+        docente universitaria en tecnología de la construcción y metodología BIM.
+      </p>
+
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat-number">+18</span>
+          <span class="stat-label">Años de experiencia</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number stat-breakdown">110 mil Obra · 158 mil BIM · +5 mil Diseño</span>
+          <span class="stat-label">m² por frente</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">+260 mil</span>
+          <span class="stat-label">m² en total</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">ISO 19650</span>
+          <span class="stat-label">BIM Fórum · BEP · BIM Kit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCIA ============ -->
+<section class="section section-alt" id="experiencia">
+  <div class="container">
+    <p class="section-eyebrow">02 — Trayectoria</p>
+    <h2 class="section-title">Experiencia</h2>
+    <p class="section-lead">
+      Más de 18 años de trayectoria organizados en tres frentes: Construcción y Obra,
+      BIM, y Diseño, Consultoría y Docencia.
+    </p>
+
+    <!-- Pestañas de categoría (se generan desde js/experiencia-data.js) -->
+    <div class="filters" id="expTabs"></div>
+    <p class="exp-tab-lead" id="expTabLead"></p>
+
+    <!-- La línea de tiempo se genera desde js/experiencia-data.js — ver ese archivo para editar cargos -->
+    <ol class="timeline" id="expTimeline"></ol>
+  </div>
+</section>
+
+<!-- ============ PROYECTOS ============ -->
+<section class="section" id="proyectos">
+  <div class="container">
+    <p class="section-eyebrow">03 — Portafolio</p>
+    <h2 class="section-title">Proyectos</h2>
+    <p class="section-lead">
+      Selección de proyectos en coordinación BIM, diseño y consultoría, y
+      construcción y obra.
+    </p>
+
+    <!-- Filtros de frente profesional y de tipo de edificación (se generan
+         automáticamente según los datos, ver js/proyectos-data.js) -->
+    <div class="filters-group">
+      <p class="filters-label">Frente</p>
+      <div class="filters" id="filtrosFrente"></div>
+    </div>
+    <div class="filters-group">
+      <p class="filters-label">Tipo de edificación</p>
+      <div class="filters" id="filtros"></div>
+    </div>
+
+    <!-- Las tarjetas se generan desde js/proyectos-data.js — ver ese archivo para agregar proyectos -->
+    <div class="projects-grid" id="proyectosGrid"></div>
+  </div>
+</section>
+
+<!-- ============ HABILIDADES / SOFTWARE ============ -->
+<section class="section section-alt" id="habilidades">
+  <div class="container">
+    <p class="section-eyebrow">04 — Herramientas</p>
+    <h2 class="section-title">Habilidades &amp; Software</h2>
+
+    <div class="skills-grid skills-grid-4">
+      <div class="skill-group">
+        <h3>BIM</h3>
+        <ul class="tag-list">
+          <li>Revit</li>
+          <li>Navisworks</li>
+          <li>BIM 360</li>
+          <li>Dynamo</li>
+          <li>AutoCAD</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Gestión</h3>
+        <ul class="tag-list">
+          <li>MS Project</li>
+          <li>Office</li>
+          <li>Power BI</li>
+          <li>Sinco ERP</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Programación - IA</h3>
+        <ul class="tag-list">
+          <li>Python</li>
+          <li>Herramientas IA</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Visualización</h3>
+        <ul class="tag-list">
+          <li>D5 Render</li>
+          <li>V-Ray</li>
+          <li>Corel</li>
+          <li>Photoshop</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="standards-note">
+      Adaptabilidad de proyectos BIM según BIM Fórum Colombia, BIM Kit, el BEP y la norma ISO 19650.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="section" id="contacto">
+  <div class="container">
+    <p class="section-eyebrow">05 — Contacto</p>
+    <h2 class="section-title">Hablemos</h2>
+    <p class="section-lead">
+      Disponible para consultoría BIM, coordinación de proyectos y nuevas oportunidades.
+    </p>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:arq.cristian1512@gmail.com">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"></path><path d="M22 6c0-1.1-.9-2-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6Z"></path><path d="m22 6-10 7L2 6"></path></svg>
+        <div>
+          <span class="contact-label">Correo</span>
+          <span class="contact-value">arq.cristian1512@<wbr>gmail.com</span>
+        </div>
+      </a>
+
+      <a class="contact-card" href="tel:+573218030988">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <div>
+          <span class="contact-label">Teléfono</span>
+          <span class="contact-value">321 803 0988</span>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://www.linkedin.com/in/cristian-c%C3%A1rdenas/" target="_blank" rel="noopener noreferrer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <div>
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">/in/cristian-cárdenas</span>
+        </div>
+      </a>
+
+      <div class="contact-card contact-card-static">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <div>
+          <span class="contact-label">Ubicación</span>
+          <span class="contact-value">Manizales, Caldas — Colombia</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-download">
+      <a href="cv/Portafolio-Cristian-Cardenas.pdf" class="btn btn-primary" download>Descargar Portafolio en PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Cristian Cárdenas — Arquitecto · Consultor BIM</span>
+    <a href="#inicio">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<script src="js/proyectos-data.js?v=3"></script>
+<script src="js/experiencia-data.js?v=3"></script>
+<script src="js/main.js?v=3"></script>
+</body>
+</html>

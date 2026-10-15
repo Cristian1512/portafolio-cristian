@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Portafolio — Cristian Cárdenas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --text: #191c1f;
+    --text-muted: #5b6470;
+    --accent: #b5652d;
+    --border: #dedad0;
+  }
+  * { box-sizing: border-box; }
+  @page { size: A4; margin: 8mm 14mm 6mm; }
+  body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    font-size: 9.5pt;
+    line-height: 1.22;
+  }
+  h1, h2, h3 { font-family: "Space Grotesk", sans-serif; margin: 0; }
+
+  /* ---- Header ---- */
+  .cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 4px;
+    margin-bottom: 5px;
+  }
+  .cv-id { display: flex; align-items: center; gap: 16px; }
+  .cv-kicker { font-size: 8.5pt; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+  .cv-photo { width: 66px; height: 66px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .cv-header h1 { font-size: 20pt; font-weight: 700; letter-spacing: -0.01em; }
+  .cv-role { font-size: 10pt; color: var(--accent); font-weight: 600; margin-top: 3px; }
+  .cv-subtitle { font-size: 8.3pt; color: var(--text-muted); margin-top: 1px; }
+  .cv-contact { text-align: right; font-size: 8.1pt; color: var(--text-muted); line-height: 1.4; }
+  .cv-contact div { white-space: nowrap; }
+  .cv-contact strong { color: var(--text); }
+
+  /* ---- Sections ---- */
+  section { margin-bottom: 3px; }
+  h2.cv-section-title {
+    font-size: 9.3pt;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+  }
+  .profile-text { font-size: 9pt; color: var(--text); text-align: justify; }
+
+  .stats-row { display: flex; gap: 20px; margin: 3px 0 5px; }
+  .stats-row div { border-left: 2px solid var(--accent); padding-left: 7px; }
+  .stats-row .num { display: block; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 12pt; }
+  .stats-row .num.num-breakdown { font-size: 9.5pt; white-space: nowrap; }
+  .stats-row .lbl { display: block; font-size: 7pt; color: var(--text-muted); }
+
+  /* ---- Experience ---- */
+  .exp-item { display: grid; grid-template-columns: 74px 1fr; gap: 10px; margin-bottom: 1px; page-break-inside: avoid; }
+  .exp-year { font-size: 7.7pt; font-weight: 700; color: var(--text-muted); padding-top: 1px; }
+  .exp-title { font-size: 9pt; font-weight: 600; }
+  .exp-place { font-size: 8pt; color: var(--accent); font-weight: 600; margin: 0; }
+  .exp-desc { font-size: 8.3pt; color: var(--text-muted); margin: 0 0 1px; }
+
+  /* ---- Segunda sección de experiencia (fuerza salto de página) ---- */
+  .exp-pagebreak { margin-top: 12px; }
+  .exp-pagebreak h2.cv-section-title { break-after: avoid; page-break-after: avoid; }
+  .exp-pagebreak { page-break-before: always; break-before: page; }
+
+  /* ---- Proyectos destacados (gallery pages) ---- */
+  .proj-page { page-break-before: always; break-before: page; padding-top: 6mm; }
+  .proj-page.flow-after { page-break-before: auto; break-before: auto; padding-top: 6px; margin-top: 10px; }
+  .proj-page .cv-section-title { font-size: 11pt; margin-bottom: 8px; }
+  .proj-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px 14px; margin-bottom: 6px; }
+  .proj-item { display: flex; flex-direction: column; page-break-inside: avoid; break-inside: avoid; }
+  .p-thumb-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3.1;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 3px 8px rgba(25,28,31,0.16);
+    background-color: #f2f0e9;
+  }
+  .p-thumb-wrap .p-thumb-fg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .proj-item .p-text { margin-top: 4px; }
+  .proj-item .p-title { font-weight: 700; font-size: 8.7pt; display: block; line-height: 1.2; }
+  .proj-item .p-meta { color: var(--text-muted); font-size: 7.5pt; }
+
+  /* ---- Software (bottom of page 2) ---- */
+  .software-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 5px; }
+  .skill-block h3 { font-size: 8.6pt; font-weight: 700; margin-bottom: 3px; }
+  .skill-tags { font-size: 8.3pt; color: var(--text-muted); line-height: 1.4; }
+
+  .standards { font-size: 8pt; color: var(--text-muted); margin-top: 10px; border-top: 1px solid var(--border); padding-top: 6px; }
+
+  footer.cv-footer { margin-top: 10px; font-size: 7.2pt; color: var(--text-muted); text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="cv-header">
+  <div class="cv-id">
+    <img class="cv-photo" src="../assets/img/perfil/cristian.jpg" alt="Cristian Cárdenas">
+    <div>
+      <p class="cv-kicker">Portafolio</p>
+      <h1>Cristian Cárdenas</h1>
+      <p class="cv-role">Arquitecto</p>
+      <p class="cv-subtitle">Especialista en Alta Gerencia · MSc en Medio Ambiente y Desarrollo · Consultor BIM-AEC · Gestión de Proyectos</p>
+    </div>
+  </div>
+  <div class="cv-contact">
+    <div><strong>321 803 0988</strong></div>
+    <div>arq.cristian1512@gmail.com</div>
+    <div>linkedin.com/in/cristian-cárdenas</div>
+    <div>Manizales, Caldas — Colombia</div>
+  </div>
+</div>
+
+<section>
+  <h2 class="cv-section-title">Perfil profesional</h2>
+  <p class="profile-text">
+    Arquitecto con experiencia en proyectos de construcción residencial, institucional, industrial,
+    vial y comercial. He liderado y apoyado procesos de supervisión técnica y administrativa, ejecución
+    de obra, consultoría y automatización BIM, interventoría, gestión de licencias, formulación de
+    proyectos inmobiliarios y diseño arquitectónico.
+  </p>
+  <div class="stats-row">
+    <div><span class="num">10+</span><span class="lbl">PROYECTOS BIM</span></div>
+    <div><span class="num num-breakdown">110 mil Obra · 158 mil BIM · +5 mil Diseño</span><span class="lbl">M² POR FRENTE</span></div>
+    <div><span class="num">6</span><span class="lbl">DEPARTAMENTOS</span></div>
+    <div><span class="num">ISO 19650</span><span class="lbl">BIM FÓRUM · BEP · BIM KIT</span></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="cv-section-title">Experiencia en Ejecución de Obra - Interventoría - Supervisión y Gerencia de proyectos</h2>
+
+  <div class="exp-item">
+    <span class="exp-year">2021–2026</span>
+    <div>
+      <span class="exp-title">Coordinador / Residente de Interventoría — Contratos DPS</span>
+      <div class="exp-place">Departamento para la Prosperidad Social · Caldas y Risaralda</div>
+      <p class="exp-desc">Interventoría integral (técnica, administrativa, legal, financiera y ambiental) de infraestructura social y vial rural: mejoramiento de vivienda (122 viviendas), pavimentos flexibles y rígidos (1.760 ml) y placas huella (1.500 ml), y una plaza de mercado (3.844 m²) con centro comunitario (1.363 m²).</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2022</span>
+    <div>
+      <span class="exp-title">Consultoría y Coordinación construcción</span>
+      <div class="exp-place">Bodega Industrial · Chinchiná, Caldas</div>
+      <p class="exp-desc">Diseño y seguimiento técnico de una bodega industrial de gran luz en estructura metálica y obra civil. 2.000 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2018–2020</span>
+    <div>
+      <span class="exp-title">Coordinador de Obra</span>
+      <div class="exp-place">Reconstrucción Viviendas Barrio La Carola · Manizales, Caldas</div>
+      <p class="exp-desc">Coordinación de obra, implementación BEP-BIM, revisión de diseños y presupuestos. Gestión de licencias urbanísticas y procesos licitatorios; reconstrucción de 17 viviendas (1.714 m²).</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2018–2020</span>
+    <div>
+      <span class="exp-title">Coordinador de Obra</span>
+      <div class="exp-place">Obras Varias de la Gerencia de MP · Manizales, Caldas</div>
+      <p class="exp-desc">Adecuación Registraduría (302 m²); nivel 1 de los edificios D y E del Centro Comercial Mallplaza (2.609 m²); licitación puente peatonal (226 m², sin construir); punto fijo de conexión entre pisos 3 y 4 del edificio C (24 m²); reconstrucción Carrera 11A (324 m²).</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2018</span>
+    <div>
+      <span class="exp-title">Director de Interventoría</span>
+      <div class="exp-place">Adecuación Oficina Colpensiones · Manizales, Caldas</div>
+      <p class="exp-desc">Interventoría técnica, administrativa y financiera para la adecuación física, dotación, redes eléctricas y climatización de la oficina Colpensiones Manizales. 674 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2015–2016</span>
+    <div>
+      <span class="exp-title">Residente Administrativo</span>
+      <div class="exp-place">Muro de Contención y Excavaciones — C.C MP · Manizales, Caldas</div>
+      <p class="exp-desc">Residencia administrativa de las obras de muro de contención y excavaciones para la construcción del Centro Comercial MP. 7.790 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2014–2015</span>
+    <div>
+      <span class="exp-title">Residente de Interventoría</span>
+      <div class="exp-place">Adecuación Oficinas DIAN · Manizales, Caldas</div>
+      <p class="exp-desc">Interventoría técnica, administrativa y financiera para obras de adecuación, reparación, construcción, mantenimiento y dotación de la sede DIAN Manizales. 2.846 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2013–2014</span>
+    <div>
+      <span class="exp-title">Residente de Obra</span>
+      <div class="exp-place">Conjunto Valles de la Florida · Villamaría, Caldas</div>
+      <p class="exp-desc">Control técnico y gestión de cantidades, nómina, personal, revisión planos, materiales y equipos para 200 viviendas en sistema industrializado y construcción zona social. 84.674 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2013–2014</span>
+    <div>
+      <span class="exp-title">Director de Obra</span>
+      <div class="exp-place">Viviendas y Locales Comerciales · Manizales, Caldas</div>
+      <p class="exp-desc">Construcción de un edificio de uso mixto, con locales comerciales en primer piso y vivienda en los niveles superiores. 185 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2013</span>
+    <div>
+      <span class="exp-title">Residente de Obra</span>
+      <div class="exp-place">Institución Educativa Doce de Octubre · Medellín, Antioquia</div>
+      <p class="exp-desc">Control técnico, presupuesto y coordinación de personal y materiales para la construcción de la sede educativa. 2.382 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2011–2013</span>
+    <div>
+      <span class="exp-title">Director de Obra</span>
+      <div class="exp-place">Estación de Servicio EDS Energy · Quibdó, Chocó</div>
+      <p class="exp-desc">Coordinación de la construcción: diseño arquitectónico, especificaciones técnicas, presupuesto y gestión documental. 5.251 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2009–2011</span>
+    <div>
+      <span class="exp-title">Director de Proyectos / Residente de Obra</span>
+      <div class="exp-place">Centro Espiritual · El Rosal, Cundinamarca</div>
+      <p class="exp-desc">Supervisión técnica del Centro de Espiritualidad María Reina de la Paz (1.568 m²); posteriormente dirección y coordinación de proyectos, diseño arquitectónico, cuantificación y presupuestos.</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2008</span>
+    <div>
+      <span class="exp-title">Auxiliar de Residencia de Obra</span>
+      <div class="exp-place">Restauración Cafetería — Campus El Cable UNAL · Manizales, Caldas</div>
+      <p class="exp-desc">Apoyo al plan de conservación de edificios del campus y auxiliar de residencia en la restauración de la cafetería de la Facultad de Arquitectura. 802 m².</p>
+    </div>
+  </div>
+</section>
+
+<section class="proj-page">
+  <h2 class="cv-section-title">Proyectos — Ejecución de Obra - Interventoría - Supervisión y Gerencia</h2>
+  <div class="proj-grid">
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/dps-plaza-mercado.jpg" alt="Plaza de Mercado DPS" style="background-image:url('thumbs/dps-plaza-mercado-bg.jpg')"></div><span class="p-text"><span class="p-title">Plaza de Mercado DPS</span><span class="p-meta">Comercial · 2023–2026</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/dps-pavimentos.jpg" alt="Pavimentos Flexibles y Rígidos – DPS" style="background-image:url('thumbs/dps-pavimentos-bg.jpg')"></div><span class="p-text"><span class="p-title">Pavimentos Flexibles y Rígidos – DPS</span><span class="p-meta">Vial · 2024–2025</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/dps-centro-comunitario.jpg" alt="Centro Comunitario DPS" style="background-image:url('thumbs/dps-centro-comunitario-bg.jpg')"></div><span class="p-text"><span class="p-title">Centro Comunitario DPS</span><span class="p-meta">Institucional · 2022–2023</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/bodega-industrial.jpg" alt="Bodega Industrial" style="background-image:url('thumbs/bodega-industrial-bg.jpg')"></div><span class="p-text"><span class="p-title">Bodega Industrial</span><span class="p-meta">Industrial · 2022</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/dps-placas-huella.jpg" alt="Placas Huella DPS" style="background-image:url('thumbs/dps-placas-huella-bg.jpg')"></div><span class="p-text"><span class="p-title">Placas Huella DPS</span><span class="p-meta">Vial · 2022</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/dps-mejoramiento-vivienda.jpg" alt="Mejoramientos de Vivienda – DPS" style="background-image:url('thumbs/dps-mejoramiento-vivienda-bg.jpg')"></div><span class="p-text"><span class="p-title">Mejoramientos de Vivienda – DPS</span><span class="p-meta">Residencial · 2021–2026</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/obras-varias-mpmz.jpg" alt="Reconstrucción Viviendas La Carola" style="background-image:url('thumbs/obras-varias-mpmz-bg.jpg')"></div><span class="p-text"><span class="p-title">Reconstrucción Viviendas La Carola</span><span class="p-meta">Residencial · 2018–2020</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/obras-varias-gerencia-mp.jpg" alt="Obras Varias de la Gerencia de MP" style="background-image:url('thumbs/obras-varias-gerencia-mp-bg.jpg')"></div><span class="p-text"><span class="p-title">Obras Varias de la Gerencia de MP</span><span class="p-meta">Comercial · 2018–2020</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/adecuacion-colpensiones.jpg" alt="Adecuación Oficina Colpensiones" style="background-image:url('thumbs/adecuacion-colpensiones-bg.jpg')"></div><span class="p-text"><span class="p-title">Adecuación Colpensiones</span><span class="p-meta">Institucional · 2018</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/mallplaza-manizales-obra.jpg" alt="C.C. Mallplaza Manizales" style="background-image:url('thumbs/mallplaza-manizales-obra-bg.jpg')"></div><span class="p-text"><span class="p-title">C.C. Mallplaza Manizales</span><span class="p-meta">Comercial · 2015–2018</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/muro-contencion-mpmz.jpg" alt="Muro de Contención y Excavaciones — C.C MP" style="background-image:url('thumbs/muro-contencion-mpmz-bg.jpg')"></div><span class="p-text"><span class="p-title">Muro de Contención y Excavaciones — C.C MP</span><span class="p-meta">Comercial · 2015–2016</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/adecuacion-dian.jpg" alt="Adecuación Oficinas DIAN" style="background-image:url('thumbs/adecuacion-dian-bg.jpg')"></div><span class="p-text"><span class="p-title">Adecuación DIAN</span><span class="p-meta">Institucional · 2014–2015</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/valles-de-la-florida.jpg" alt="Conjunto Valles de la Florida" style="background-image:url('thumbs/valles-de-la-florida-bg.jpg')"></div><span class="p-text"><span class="p-title">Valles de la Florida</span><span class="p-meta">Residencial · 2013–2014</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/viviendas-y-locales.jpg" alt="Viviendas y Locales Comerciales" style="background-image:url('thumbs/viviendas-y-locales-bg.jpg')"></div><span class="p-text"><span class="p-title">Viviendas y Locales</span><span class="p-meta">Residencial · 2013–2014</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/colegio-12-octubre.jpg" alt="Institución Educativa Doce de Octubre" style="background-image:url('thumbs/colegio-12-octubre-bg.jpg')"></div><span class="p-text"><span class="p-title">Institución Educativa Doce de Octubre</span><span class="p-meta">Académico · 2013</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/eds-energy.jpg" alt="Estación de Servicio EDS Energy" style="background-image:url('thumbs/eds-energy-bg.jpg')"></div><span class="p-text"><span class="p-title">EDS Energy</span><span class="p-meta">Comercial · 2011–2013</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/centro-espiritual.jpg" alt="Centro Espiritual" style="background-image:url('thumbs/centro-espiritual-bg.jpg')"></div><span class="p-text"><span class="p-title">Centro Espiritual</span><span class="p-meta">Religioso · 2009–2011</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/restauracion-cafeteria-unal.jpg" alt="Restauración Cafetería UNAL" style="background-image:url('thumbs/restauracion-cafeteria-unal-bg.jpg')"></div><span class="p-text"><span class="p-title">Restauración Cafetería UNAL</span><span class="p-meta">Académico · 2008</span></span></div>
+  </div>
+</section>
+
+<section class="exp-pagebreak">
+  <h2 class="cv-section-title">Experiencia — Modelado y Coordinación BIM</h2>
+
+  <div class="exp-item">
+    <span class="exp-year">2026–Actual</span>
+    <div>
+      <span class="exp-title">Apoyo a la coordinación VCD - BIM (remoto e híbrido ocasional)</span>
+      <div class="exp-place">Campus CTIB — Fase 1A · Consorcio Alianza CCB · Bogotá D.C.</div>
+      <p class="exp-desc">Apoyo a la coordinación BIM del Campus de Ciencia, Tecnología e Innovación de Bogotá – Región (CTIB), Fase 1A. 44.000 m², LOD 350.</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2025–2026</span>
+    <div>
+      <span class="exp-title">Diseño y modelado BIM</span>
+      <div class="exp-place">Coordinación Académica UNAL — Énfasis en Construcción 1+2 · Universidad Nacional de Colombia, Sede Manizales</div>
+      <p class="exp-desc">Diseño arquitectónico, estructura y MEP para estructuración inmobiliaria, como trabajo académico con los alumnos de la asignatura. LOD 300.</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2024</span>
+    <div>
+      <span class="exp-title">Coordinación BIM — Etapa de construcción</span>
+      <div class="exp-place">Contraloría Manizales · Manizales, Caldas</div>
+      <p class="exp-desc">Coordinación BIM en etapa de construcción y ajuste del modelo As-Built a LOD 500. 2.001 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2023</span>
+    <div>
+      <span class="exp-title">Modelado RCI y Estructura + Coordinación BIM (remoto)</span>
+      <div class="exp-place">Nomad Cabrera · Bogotá D.C.</div>
+      <p class="exp-desc">Coordinación BIM integral en etapa de preconstrucción. Federado LOD 350, 28.044 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2020–2021</span>
+    <div>
+      <span class="exp-title">Apoyo modelado Arquitectura + Estructura (remoto)</span>
+      <div class="exp-place">C.E Connecta 80 — Torre Fura · Entrez Ingenieros Civiles · Bogotá D.C.</div>
+      <p class="exp-desc">Modelado en etapa de preconstrucción. Federado LOD 350, 37.000 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2020–2021</span>
+    <div>
+      <span class="exp-title">Apoyo programación 4D</span>
+      <div class="exp-place">Mallplaza Cali · Cali, Valle del Cauca</div>
+      <p class="exp-desc">Vinculación del modelo BIM a la planeación temporal de obra. 167.000 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2019</span>
+    <div>
+      <span class="exp-title">Apoyo coordinación de modelo federado (remoto)</span>
+      <div class="exp-place">Conjunto Residencial Cerezo · Mosquera, Cundinamarca</div>
+      <p class="exp-desc">Coordinación del modelo federado en etapa de preconstrucción. 71.000 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2018</span>
+    <div>
+      <span class="exp-title">Diseño y modelado BIM de arquitectura</span>
+      <div class="exp-place">Peaje La Gómez · Vía 45 Sabana de Torres – Ruta del Sol</div>
+      <p class="exp-desc">1.500 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2016–2018</span>
+    <div>
+      <span class="exp-title">Modelado y coordinación BIM en centros comerciales (remoto y presencial)</span>
+      <div class="exp-place">IKEA Envigado, Antioquia (18.000 m²) · C.C. Mallplaza Manizales, Caldas (110.000 m²)</div>
+      <p class="exp-desc">IKEA (2017, remoto): modelado de arquitectura y redes sanitarias. Mallplaza Manizales (2016–2018): coordinación BIM del modelo federado LOD 300 en etapa de construcción y entrega As-Built LOD 400.</p>
+    </div>
+  </div>
+</section>
+
+<section class="proj-page flow-after">
+  <h2 class="cv-section-title">Proyectos — Modelado y Coordinación BIM</h2>
+  <div class="proj-grid">
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/ctib-fase1a.jpg" alt="Campus de Ciencia, Tecnología e Innovación de Bogotá – Región (CTIB) — Fase 1A"></div><span class="p-text"><span class="p-title">Campus CTIB — Fase 1A</span><span class="p-meta">Institucional · 2026–Actual</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/nueva-esperanza.jpg" alt="Coordinación Académica UNAL"></div><span class="p-text"><span class="p-title">Coordinación Académica UNAL</span><span class="p-meta">Trabajos académicos · 2025–2026</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/contraloria-manizales.jpg" alt="Contraloría Manizales"></div><span class="p-text"><span class="p-title">Contraloría Manizales</span><span class="p-meta">Institucional · 2024</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/nomad-cabrera.jpg" alt="Nomad Cabrera"></div><span class="p-text"><span class="p-title">Nomad Cabrera</span><span class="p-meta">Mixto · 2023</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/connecta-80-fura.jpg" alt="C.E Connecta 80 — Torre Fura"></div><span class="p-text"><span class="p-title">C.E Connecta 80 — Torre Fura</span><span class="p-meta">Comercial · 2020–2021</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/mallplaza-cali.jpg" alt="Mallplaza Cali"></div><span class="p-text"><span class="p-title">Mallplaza Cali</span><span class="p-meta">Comercial · 2020–2021</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/conjunto-cerezo.jpg" alt="Conjunto Residencial Cerezo"></div><span class="p-text"><span class="p-title">Conjunto Residencial Cerezo</span><span class="p-meta">Residencial · 2019</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/peaje-la-gomez.jpg" alt="Peaje La Gómez"></div><span class="p-text"><span class="p-title">Peaje La Gómez</span><span class="p-meta">Vial · 2018</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/ikea-envigado.jpg" alt="IKEA Envigado"></div><span class="p-text"><span class="p-title">IKEA Envigado</span><span class="p-meta">Comercial · 2017</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/mallplaza-manizales.jpg" alt="C.C. Mallplaza Manizales"></div><span class="p-text"><span class="p-title">C.C. Mallplaza Manizales</span><span class="p-meta">Comercial · 2016–2018</span></span></div>
+  </div>
+</section>
+
+<section class="exp-pagebreak">
+  <h2 class="cv-section-title">Experiencia — Diseño, Consultoría y Docencia</h2>
+
+  <div class="exp-item">
+    <span class="exp-year">2023–2026</span>
+    <div>
+      <span class="exp-title">Docente de Cátedra — Escuela de Arquitectura y Urbanismo</span>
+      <div class="exp-place">Universidad Nacional de Colombia — Sede Manizales · Manizales, Caldas</div>
+      <p class="exp-desc">Docencia universitaria de pregrado en construcción, estructuración de proyectos inmobiliarios, tecnología de la construcción, patologías de la edificación, sostenibilidad y metodología BIM.</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2024</span>
+    <div>
+      <span class="exp-title">Diseño arquitectónico</span>
+      <div class="exp-place">Caballerizas · Cerritos, Pereira</div>
+      <p class="exp-desc">Diseño arquitectónico y modelado RVT de caballerizas. 593 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2019</span>
+    <div>
+      <span class="exp-title">Diseño Arquitectónico</span>
+      <div class="exp-place">Vivienda Municipio de Filadelfia · Filadelfia, Caldas</div>
+      <p class="exp-desc">Diseño arquitectónico de una vivienda de 4 plantas. 358 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2015</span>
+    <div>
+      <span class="exp-title">Diseño Arquitectónico</span>
+      <div class="exp-place">EDS Hotel Las Lajas · Vereda La Ye, Chocó</div>
+      <p class="exp-desc">Diseño del hotel y zona comercial de la estación de servicio. 445 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2011</span>
+    <div>
+      <span class="exp-title">Diseño arquitectónico y renderizado</span>
+      <div class="exp-place">Vivienda Agua de Dios — Los Lagos · Agua de Dios, Cundinamarca</div>
+      <p class="exp-desc">Diseño arquitectónico y renderizado de una vivienda de dos niveles. 228 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2010</span>
+    <div>
+      <span class="exp-title">Apoyo en Diseño Arquitectónico</span>
+      <div class="exp-place">Multifamiliar El Sol · Manizales, Caldas</div>
+      <p class="exp-desc">Apoyo en el diseño arquitectónico de un edificio multifamiliar en altura.</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2010</span>
+    <div>
+      <span class="exp-title">Apoyo en Diseño Arquitectónico</span>
+      <div class="exp-place">Multifamiliar en Villamaría, Caldas · Villamaría, Caldas</div>
+      <p class="exp-desc">Apoyo en el diseño arquitectónico de un conjunto multifamiliar.</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2009</span>
+    <div>
+      <span class="exp-title">Propuesta Arquitectónica</span>
+      <div class="exp-place">Casa de Campo Villa Rubí · Vía Palestina, Caldas</div>
+      <p class="exp-desc">Propuesta arquitectónica de una casa de campo con cubierta a cuatro aguas y porche perimetral en madera y piedra. 315 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2009</span>
+    <div>
+      <span class="exp-title">Apoyo en Diseño Arquitectónico</span>
+      <div class="exp-place">Casa Las Palmas · Medellín, Antioquia</div>
+      <p class="exp-desc">Apoyo en el diseño arquitectónico de una vivienda unifamiliar, en conjunto con el arquitecto Gustavo Cortez. 320 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2009</span>
+    <div>
+      <span class="exp-title">Diseño de Fachada y Renderizado</span>
+      <div class="exp-place">Multifamiliar en Santiago de Cali · Cali, Valle del Cauca</div>
+      <p class="exp-desc">Diseño de fachada y renderizado de un edificio residencial multifamiliar de cuatro pisos.</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2009</span>
+    <div>
+      <span class="exp-title">Propuesta Arquitectónica</span>
+      <div class="exp-place">Vivienda Familia Restrepo · Pereira, Risaralda</div>
+      <p class="exp-desc">Propuesta arquitectónica de una vivienda unifamiliar de dos plantas. 396 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2009</span>
+    <div>
+      <span class="exp-title">Propuesta Arquitectónica</span>
+      <div class="exp-place">Propuesta Remodelación Vivienda Unifamiliar Seidel · Manizales, Caldas</div>
+      <p class="exp-desc">Propuesta de remodelación de una vivienda unifamiliar, con integración de cocina, comedor y zona social. 187 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2008</span>
+    <div>
+      <span class="exp-title">Apoyo en Diseño de Fachada y Renderizado</span>
+      <div class="exp-place">Casa La Colina · Funza, Cundinamarca</div>
+      <p class="exp-desc">Apoyo en el diseño de fachada y renderizado de una vivienda unifamiliar de dos plantas en cubierta metálica y fachada en ladrillo. 213 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2008</span>
+    <div>
+      <span class="exp-title">Renderizado de Fachada</span>
+      <div class="exp-place">Conjunto Arrayanes · Zarzal, Valle del Cauca</div>
+      <p class="exp-desc">Renderizado de la fachada de un edificio residencial en ladrillo, con balcones ajardinados y terraza verde en cubierta.</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2008</span>
+    <div>
+      <span class="exp-title">Diseño de Fachada</span>
+      <div class="exp-place">Conjunto Trébol Alto · Cali, Valle del Cauca</div>
+      <p class="exp-desc">Diseño de la fachada de un edificio residencial en ladrillo, con balcones y antejardín arbolado. 1.400 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2008</span>
+    <div>
+      <span class="exp-title">Auxiliar de Proyectos / Propuesta Arquitectónica</span>
+      <div class="exp-place">Edificio de Extensión UNAL · Manizales, Caldas</div>
+      <p class="exp-desc">Propuesta arquitectónica del edificio de extensión de la Universidad Nacional, con auditorio semicircular y volúmenes articulados sobre el talud. 626 m².</p>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <span class="exp-year">2007</span>
+    <div>
+      <span class="exp-title">Diseño Arquitectónico</span>
+      <div class="exp-place">Diseño Arquitectónico Cabaña Villamayara · Palestina, Caldas</div>
+      <p class="exp-desc">Diseño arquitectónico de una cabaña en ladrillo a la vista, con cubierta a dos aguas y torreón cilíndrico. 295 m².</p>
+    </div>
+  </div>
+</section>
+
+<section class="proj-page flow-after">
+  <h2 class="cv-section-title">Proyectos — Diseño, Consultoría y Docencia</h2>
+  <div class="proj-grid">
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/caballerizas-pereira.jpg" alt="Caballerizas" style="background-image:url('thumbs/caballerizas-pereira-bg.jpg')"></div><span class="p-text"><span class="p-title">Caballerizas</span><span class="p-meta">Otro · 2024</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/vivienda-filadelfia.jpg" alt="Vivienda Municipio de Filadelfia" style="background-image:url('thumbs/vivienda-filadelfia-bg.jpg')"></div><span class="p-text"><span class="p-title">Vivienda Filadelfia</span><span class="p-meta">Residencial · 2019</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/eds-las-lajas.jpg" alt="EDS Hotel Las Lajas" style="background-image:url('thumbs/eds-las-lajas-bg.jpg')"></div><span class="p-text"><span class="p-title">EDS Hotel Las Lajas</span><span class="p-meta">Comercial · 2015</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/vivienda-agua-de-dios-los-lagos.jpg" alt="Vivienda Agua de Dios — Los Lagos" style="background-image:url('thumbs/vivienda-agua-de-dios-los-lagos-bg.jpg')"></div><span class="p-text"><span class="p-title">Vivienda Los Lagos</span><span class="p-meta">Residencial · 2011</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/multifamiliar-el-sol.jpg" alt="Multifamiliar El Sol" style="background-image:url('thumbs/multifamiliar-el-sol-bg.jpg')"></div><span class="p-text"><span class="p-title">Multifamiliar El Sol</span><span class="p-meta">Residencial · 2010</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/multifamiliar-villamaria.jpg" alt="Multifamiliar en Villamaría, Caldas" style="background-image:url('thumbs/multifamiliar-villamaria-bg.jpg')"></div><span class="p-text"><span class="p-title">Multifamiliar en Villamaría, Caldas</span><span class="p-meta">Residencial · 2010</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/villa-rubi.jpg" alt="Casa de Campo Villa Rubí" style="background-image:url('thumbs/villa-rubi-bg.jpg')"></div><span class="p-text"><span class="p-title">Casa de Campo Villa Rubí</span><span class="p-meta">Residencial · 2009</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/casa-las-palmas.jpg" alt="Casa Las Palmas" style="background-image:url('thumbs/casa-las-palmas-bg.jpg')"></div><span class="p-text"><span class="p-title">Casa Las Palmas</span><span class="p-meta">Residencial · 2009</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/multifamiliar-santiago-cali.jpg" alt="Multifamiliar en Santiago de Cali" style="background-image:url('thumbs/multifamiliar-santiago-cali-bg.jpg')"></div><span class="p-text"><span class="p-title">Multifamiliar Cali</span><span class="p-meta">Residencial · 2009</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/vivienda-familia-restrepo.jpg" alt="Vivienda Familia Restrepo" style="background-image:url('thumbs/vivienda-familia-restrepo-bg.jpg')"></div><span class="p-text"><span class="p-title">Vivienda Familia Restrepo</span><span class="p-meta">Residencial · 2009</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/remodelacion-vivienda-seidel.jpg" alt="Propuesta Remodelación Vivienda Unifamiliar Seidel" style="background-image:url('thumbs/remodelacion-vivienda-seidel-bg.jpg')"></div><span class="p-text"><span class="p-title">Remodelación Vivienda Seidel</span><span class="p-meta">Residencial · 2009</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/casa-la-colina.jpg" alt="Casa La Colina" style="background-image:url('thumbs/casa-la-colina-bg.jpg')"></div><span class="p-text"><span class="p-title">Casa La Colina</span><span class="p-meta">Residencial · 2008</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/conjunto-arrayanes.jpg" alt="Conjunto Arrayanes" style="background-image:url('thumbs/conjunto-arrayanes-bg.jpg')"></div><span class="p-text"><span class="p-title">Conjunto Arrayanes</span><span class="p-meta">Residencial · 2008</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/conjunto-trebol-alto.jpg" alt="Conjunto Trébol Alto" style="background-image:url('thumbs/conjunto-trebol-alto-bg.jpg')"></div><span class="p-text"><span class="p-title">Conjunto Trébol Alto</span><span class="p-meta">Residencial · 2008</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/edificio-extension-unal.jpg" alt="Edificio de Extensión UNAL" style="background-image:url('thumbs/edificio-extension-unal-bg.jpg')"></div><span class="p-text"><span class="p-title">Edificio de Extensión UNAL</span><span class="p-meta">Académico · 2008</span></span></div>
+    <div class="proj-item"><div class="p-thumb-wrap"><img class="p-thumb-fg" src="thumbs/cabana-villamayara.jpg" alt="Diseño Arquitectónico Cabaña Villamayara" style="background-image:url('thumbs/cabana-villamayara-bg.jpg')"></div><span class="p-text"><span class="p-title">Cabaña Villamayara</span><span class="p-meta">Residencial · 2007</span></span></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="cv-section-title">Software</h2>
+  <div class="software-row">
+    <div class="skill-block">
+      <h3>Modelado &amp; Coordinación BIM</h3>
+      <p class="skill-tags">AutoCAD, Revit, Navisworks, BIM 360, BIM Collaborate Pro, BIM Vision, Dynamo, Python</p>
+    </div>
+    <div class="skill-block">
+      <h3>Diseño &amp; Visualización</h3>
+      <p class="skill-tags">SketchUp, V-Ray, Lumion, Photoshop, Corel</p>
+    </div>
+    <div class="skill-block">
+      <h3>Gestión &amp; Ofimática</h3>
+      <p class="skill-tags">Edificar, Project, Word, Excel, PowerPoint, Outlook</p>
+    </div>
+  </div>
+  <p class="standards">Adaptabilidad de proyectos BIM según BIM Fórum Colombia, BIM Kit, el BEP y la norma ISO 19650.</p>
+
+  <footer class="cv-footer">Cristian Cárdenas — Especialista en Alta Gerencia · MSc en Medio Ambiente y Desarrollo · Consultor BIM-AEC · Gestión de Proyectos</footer>
+</section>
+
+</body>
+</html>
