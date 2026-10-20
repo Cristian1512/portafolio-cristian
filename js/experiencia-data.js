@@ -26,7 +26,7 @@ const EXPERIENCIA = [
   {
     categoria: "bim",
     anio: "2026 – Actual",
-    rol: "Apoyo a la coordinación VCD - BIM",
+    rol: "Profesional de apoyo VDC/BIM (remoto e híbrido ocasional)",
     empresa: "Consorcio Alianza CCB",
     lugar: "Bogotá D.C. (remoto e híbrido ocasional)",
     descripcion:
@@ -35,9 +35,9 @@ const EXPERIENCIA = [
   {
     categoria: "bim",
     anio: "2017 – 2024",
-    rol: "Coordinador BIM / Modelador BIM",
+    rol: "Coordinador BIM / Modelador BIM (tiempo parcial)",
     empresa: "Ekoobim S.A.S.",
-    lugar: "Envigado – Bogotá – Manizales (tiempo parcial)",
+    lugar: "Envigado – Bogotá – Manizales",
     descripcion:
       "Modelado BIM de arquitectura y redes sanitarias (18.000 m²), estructura y RCI en Revit. Coordinación y federación de modelos en Navisworks (30.045 m²); extracción de cantidades, producción planimétrica y modelos As-Built.",
   },
@@ -53,9 +53,9 @@ const EXPERIENCIA = [
   {
     categoria: "bim",
     anio: "2015 – 2018",
-    rol: "Residente Administrativo / Coordinador BIM",
+    rol: "Residente Administrativo / Coordinador BIM (tiempo completo)",
     empresa: "Payc S.A.S.",
-    lugar: "Manizales, Caldas (tiempo completo)",
+    lugar: "Manizales, Caldas",
     descripcion:
       "Coordinación BIM e interventoría administrativa y técnica del Centro Comercial Mallplaza Manizales (110.000 m²), fases 1 y 2: control de programación, presupuesto, calidad y documentación técnica.",
   },
@@ -63,8 +63,8 @@ const EXPERIENCIA = [
   // ---------------- Diseño y Consultoría ----------------
   {
     categoria: "diseno",
-    anio: "2023 – 2026",
-    rol: "Docente de Cátedra — Escuela de Arquitectura y Urbanismo",
+    anio: "2023 – 2026 (por semestres)",
+    rol: "Docente Ocasional — Escuela de Arquitectura y Urbanismo",
     empresa: "Universidad Nacional de Colombia — Sede Manizales",
     lugar: "Manizales, Caldas",
     descripcion:
@@ -208,8 +208,8 @@ const EXPERIENCIA = [
   // ---------------- Construcción y Obra ----------------
   {
     categoria: "obra",
-    anio: "2021 – 2026",
-    rol: "Coordinador / Residente de Interventoría",
+    anio: "2021 – 2025",
+    rol: "Coordinador de Interventoría (tiempo completo)",
     empresa: "Consorcio Interprosperidad — Gavinco Ingenieros Consultores S.A.S.",
     lugar: "Filadelfia, Aranzazu, Belalcázar, Anserma (Caldas), La Virginia, Santa Rosa (Risaralda)",
     descripcion:
@@ -218,7 +218,7 @@ const EXPERIENCIA = [
   {
     categoria: "obra",
     anio: "2020 – 2021",
-    rol: "Residente de Interventoría",
+    rol: "Residente de Interventoría (tiempo completo)",
     empresa: "Consorcio Prosperidad Colombia",
     lugar: "Belalcázar, Caldas",
     descripcion:
@@ -227,7 +227,7 @@ const EXPERIENCIA = [
   {
     categoria: "obra",
     anio: "2018 – 2020",
-    rol: "Coordinador de Obra",
+    rol: "Coordinador de Obra (tiempo completo)",
     empresa: "Gálvez y Garrido Grupo Gerencial S.A.S.",
     lugar: "Manizales, Caldas",
     descripcion:
@@ -236,7 +236,7 @@ const EXPERIENCIA = [
   {
     categoria: "obra",
     anio: "2018",
-    rol: "Director de Interventoría",
+    rol: "Director de Interventoría (tiempo parcial)",
     empresa: "Consorcio Cigecon 2018",
     lugar: "Manizales, Caldas",
     descripcion:
@@ -245,7 +245,7 @@ const EXPERIENCIA = [
   {
     categoria: "obra",
     anio: "2014 – 2015",
-    rol: "Residente de Interventoría",
+    rol: "Residente de Interventoría (tiempo completo)",
     empresa: "Civing Ingenieros Contratistas S. en C.",
     lugar: "Manizales, Caldas",
     descripcion:
@@ -254,7 +254,7 @@ const EXPERIENCIA = [
   {
     categoria: "obra",
     anio: "2013 – 2014",
-    rol: "Residente de Obra",
+    rol: "Residente de Obra (tiempo completo)",
     empresa: "Constructora Berlín S.A.S.",
     lugar: "Villamaría, Caldas",
     descripcion:
@@ -263,15 +263,15 @@ const EXPERIENCIA = [
   {
     categoria: "obra",
     anio: "2013 – 2014",
-    rol: "Director de Obra",
+    rol: "Director de Obra (tiempo parcial, en paralelo)",
     empresa: "Arquitecto Héctor Jaramillo Botero",
     lugar: "Manizales, Caldas",
-    descripcion: "Construcción de locales comerciales y vivienda unifamiliar (185 m²).",
+    descripcion: "Locales comerciales y vivienda unifamiliar, barrio San Joaquín, Manizales (185 m²).",
   },
   {
     categoria: "obra",
     anio: "2013",
-    rol: "Residente de Obra",
+    rol: "Residente de Obra (tiempo completo)",
     empresa: "Conmezclas S.A.",
     lugar: "Medellín, Antioquia",
     descripcion:
@@ -280,7 +280,7 @@ const EXPERIENCIA = [
   {
     categoria: "obra",
     anio: "2011 – 2013",
-    rol: "Director de Obra",
+    rol: "Director de Obra (tiempo completo)",
     empresa: "Estación de Servicio Energy S.A.S.",
     lugar: "Quibdó, Chocó",
     descripcion:
@@ -289,7 +289,7 @@ const EXPERIENCIA = [
   {
     categoria: "obra",
     anio: "2009 – 2011",
-    rol: "Director de Proyectos / Residente de Obra",
+    rol: "Residente de Obra / Director de Proyectos (tiempo completo)",
     empresa: "Cuervo Construcciones LTDA.",
     lugar: "El Rosal, Cundinamarca",
     descripcion:

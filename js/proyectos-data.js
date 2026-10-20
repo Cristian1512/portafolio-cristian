@@ -33,7 +33,7 @@ const PROYECTOS = [
     anio: "2026 – Actual",
     area: "44.000 m²",
     lod: "LOD 350",
-    rol: "Apoyo a la coordinación VCD - BIM (remoto e híbrido ocasional)",
+    rol: "Profesional de apoyo VDC/BIM (remoto e híbrido ocasional)",
     descripcion:
       "Coordinación BIM del Campus de Ciencia, Tecnología e Innovación de Bogotá – Región (CTIB), Fase 1A.",
     imgs: [
@@ -67,7 +67,7 @@ const PROYECTOS = [
     categoria: "Comercial",
     frente: "obra",
     ubicacion: "La Virginia, Risaralda",
-    anio: "2023 – 2026",
+    anio: "2023 – 2025",
     area: "3.844 m²",
     lod: null,
     rol: "Coordinador de interventoría",
@@ -107,7 +107,7 @@ const PROYECTOS = [
     anio: "2024",
     area: "2.001 m²",
     lod: "Federado LOD 350 · As-Built LOD 500",
-    rol: "Coordinador BIM",
+    rol: "Coordinador BIM (tiempo parcial, en paralelo)",
     descripcion:
       "Coordinación BIM y ajuste del modelo As-Built de la sede administrativa.",
     imgs: [
@@ -207,7 +207,7 @@ const PROYECTOS = [
     categoria: "Residencial",
     frente: "obra",
     ubicacion: "Filadelfia, Aranzazu – Caldas",
-    anio: "2021 – 2026",
+    anio: "2021 – 2025",
     area: "122 viviendas",
     lod: null,
     rol: "Coordinador de interventoría",
@@ -262,7 +262,7 @@ const PROYECTOS = [
     anio: "2018 – 2020",
     area: "1.714 m²",
     lod: null,
-    rol: "Coordinador de Obra",
+    rol: "Coordinador de Obra (tiempo completo)",
     descripcion:
       "• Coordinación de obra, implementación BEP-BIM, revisión de diseños y presupuestos.<br>• Gestión de licencias urbanísticas y procesos licitatorios; reconstrucción de 17 viviendas (1.714 m²).",
     img: "assets/img/proyectos/obras-varias-mpmz.png",
@@ -276,7 +276,7 @@ const PROYECTOS = [
     anio: "2018 – 2020",
     area: "3.259 m²",
     lod: null,
-    rol: "Coordinador de Obra",
+    rol: "Coordinador de Obra (tiempo completo)",
     descripcion:
       "Adecuación Registraduría (302 m²); nivel 1 de los edificios D y E del Centro Comercial Mallplaza (2.609 m²); licitación puente peatonal (226 m², sin construir); punto fijo de conexión entre pisos 3 y 4 del edificio C (24 m²); reconstrucción Carrera 11A (324 m²).",
     img: "assets/img/proyectos/obras-varias-gerencia-mp.png",
@@ -332,7 +332,7 @@ const PROYECTOS = [
     anio: "2018",
     area: "674 m²",
     lod: null,
-    rol: "Director de Interventoría",
+    rol: "Director de Interventoría (tiempo parcial)",
     descripcion:
       "Interventoría técnica, administrativa y financiera para la adecuación física, dotación, redes eléctricas y climatización de la oficina Colpensiones Manizales.",
     imgs: [
@@ -381,11 +381,11 @@ const PROYECTOS = [
     titulo: "C.C. Mallplaza Manizales",
     categoria: "Comercial",
     frente: ["bim", "obra"],
-    ubicacion: "Manizales, Caldas (tiempo completo)",
+    ubicacion: "Manizales, Caldas",
     anio: "2015 – 2018",
     area: "110.000 m²",
     lod: "Federado LOD 300 · As-Built LOD 400",
-    rol: "Residente Administrativo / Coordinador BIM",
+    rol: "Residente Administrativo / Coordinador BIM (tiempo completo)",
     descripcion:
       "Coordinación BIM e interventoría administrativa y técnica durante la construcción del centro comercial en el eje cafetero, en las fases 1 y 2.",
     imgs: [
@@ -445,7 +445,7 @@ const PROYECTOS = [
     anio: "2013 – 2014",
     area: "84.674 m²",
     lod: null,
-    rol: "Residente de Obra",
+    rol: "Residente de Obra (tiempo completo)",
     descripcion:
       "Control técnico y gestión de cantidades, nómina, personal, revisión planos, materiales y equipos para 200 viviendas en sistema industrializado y construcción zona social.",
     imgs: [
@@ -464,9 +464,9 @@ const PROYECTOS = [
     anio: "2013 – 2014",
     area: "185 m²",
     lod: null,
-    rol: "Director de Obra",
+    rol: "Director de Obra (tiempo parcial, en paralelo)",
     descripcion:
-      "Construcción de un edificio de uso mixto, con locales comerciales en primer piso y vivienda en los niveles superiores.",
+      "Locales comerciales y vivienda unifamiliar, barrio San Joaquín, Manizales (185 m²).",
     imgs: [
       { src: "assets/img/proyectos/viviendas-y-locales-2.png", label: null },
       { src: "assets/img/proyectos/viviendas-y-locales.png", label: null },
@@ -481,7 +481,7 @@ const PROYECTOS = [
     anio: "2013",
     area: "2.382 m²",
     lod: null,
-    rol: "Residente de Obra",
+    rol: "Residente de Obra (tiempo completo)",
     descripcion:
       "Control técnico, presupuesto y coordinación de personal y materiales para la construcción de la sede educativa.",
     img: "assets/img/proyectos/colegio-12-octubre.png",
@@ -495,7 +495,7 @@ const PROYECTOS = [
     anio: "2011 – 2013",
     area: "5.251 m²",
     lod: null,
-    rol: "Director de Obra",
+    rol: "Director de Obra (tiempo completo)",
     descripcion:
       "Coordinación de la construcción de una estación de servicio de combustibles, incluyendo diseño arquitectónico, especificaciones técnicas, presupuesto y gestión documental.",
     img: "assets/img/proyectos/eds-energy.png",
@@ -554,7 +554,7 @@ const PROYECTOS = [
     anio: "2009 – 2011",
     area: "1.568 m²",
     lod: null,
-    rol: "Director de Proyectos / Residente de Obra",
+    rol: "Residente de Obra / Director de Proyectos (tiempo completo)",
     descripcion:
       "Supervisión técnica del Centro de Espiritualidad María Reina de la Paz (1.568 m²); posteriormente dirección y coordinación de proyectos, diseño arquitectónico, cuantificación y presupuestos.",
     imgs: [
